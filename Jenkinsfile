@@ -6,5 +6,10 @@ pipeline {
         echo 'Pipeline start'
       }
     }
+    stage('IIS') {
+      steps {
+        build 'EVO-DEV-IIS-Wix.msi'
+      }
+    }
   }
 }
