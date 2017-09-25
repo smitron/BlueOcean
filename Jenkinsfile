@@ -11,5 +11,19 @@ pipeline {
         build 'EVO-DEV-IIS-Wix.msi'
       }
     }
+    stage('CM') {
+      steps {
+        parallel(
+          "CM": {
+            echo 'Tasks for Common and Admin'
+            
+          },
+          "Nuget": {
+            build 'EVO-DEV-CM-0. Nuget for CM'
+            
+          }
+        )
+      }
+    }
   }
 }
