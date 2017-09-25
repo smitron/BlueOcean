@@ -21,6 +21,10 @@ pipeline {
           "Nuget": {
             build 'EVO-DEV-CM-0. Nuget for CM'
             
+          },
+          "CM Src": {
+            build 'EVO-DEV-CM-1.Src'
+            
           }
         )
       }
