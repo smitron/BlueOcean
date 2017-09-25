@@ -11,6 +11,7 @@ pipeline {
           "CM": {
             build 'EVO-DEV-CM-0. Nuget for CM'
             build 'EVO-DEV-CM-1. Src'
+            build 'EVO-DEV-CM-2.Wix'
             
           }
         )
