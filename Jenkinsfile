@@ -1,29 +1,16 @@
 pipeline {
-  agent any
+  agent none
   stages {
-    stage('Initialize') {
-      steps {
-        echo 'Pipeline start'
-      }
-    }
     stage('IIS') {
       steps {
-        build 'EVO-DEV-IIS-Wix.msi'
-      }
-    }
-    stage('CM') {
-      steps {
         parallel(
+          "IIS": {
+            build 'EVO-DEV-IIS-Wix.msi'
+            
+          },
           "CM": {
-            echo 'Tasks for Common and Admin'
-            
-          },
-          "Nuget": {
             build 'EVO-DEV-CM-0. Nuget for CM'
-            
-          },
-          "CM Src": {
-            build 'EVO-DEV-CM-1.Src'
+            build 'EVO-DEV-CM-1. Src'
             
           }
         )
